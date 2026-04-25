@@ -1,0 +1,42 @@
+# Visualize one random sample from each class
+
+import random
+
+# Lấy thư mục chứa các class trong tập train
+train_images_dir = data_dir / "train" / "images"
+
+# Danh sách thư mục class
+class_dirs = sorted([
+    d for d in train_images_dir.iterdir()
+    if d.is_dir()
+])
+
+# Tạo lưới 2x3
+fig, axes = plt.subplots(2, 3, figsize=(15, 10))
+axes = axes.ravel()
+
+# Duyệt từng class
+for ax, class_dir in zip(axes, class_dirs):
+    # Lấy toàn bộ ảnh trong class
+    image_files = list(class_dir.glob("*.jpg"))
+
+    if not image_files:
+        ax.axis("off")
+        continue
+
+    # Chọn ngẫu nhiên một ảnh
+    sample_path = random.choice(image_files)
+
+    # Đọc ảnh bằng OpenCV
+    image = cv2.imread(str(sample_path))
+
+    # OpenCV dùng BGR, matplotlib dùng RGB
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    # Hiển thị
+    ax.imshow(image)
+    ax.set_title(class_dir.name)
+    ax.axis("off")
+
+plt.tight_layout()
+plt.show(

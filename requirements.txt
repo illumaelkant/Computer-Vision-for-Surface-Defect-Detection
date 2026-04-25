@@ -1,0 +1,34 @@
+# Core ML
+ultralytics
+torch
+torchvision
+onnxruntime
+onnx
+
+# Computer Vision & Image Processing
+opencv-python
+Pillow
+albumentations
+
+# Data Science
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+
+# API
+Flask
+Flask-CORS
+Werkzeug
+gunicorn
+
+# Utilities
+python-dotenv
+PyYAML
+tqdm
+loguru
+
+# Dev/Test
+pytest
+httpx
