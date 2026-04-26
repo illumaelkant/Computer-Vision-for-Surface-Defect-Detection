@@ -53,6 +53,8 @@ def parse_voc_xml(xml_path: str) -> list[dict]:
         width = max(0.001, min(1.0, width))
         height = max(0.001, min(1.0, height))
 
+        # trong yolo label sẽ là các box, có tọa độ tâm, kích thước
+        # box sẽ luôn luôn song song với trục ảnh
         annotations.append({
             "class_id": CLASS_MAP[class_name],
             "x_center": x_center,
