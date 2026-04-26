@@ -1,0 +1,17 @@
+# path cua thu muc root:
+path: data/processed
+train: images/train
+val: images/val
+test: images/test
+
+# number of classes
+nc: 6
+
+## class names
+names:
+  0: crazing
+  1: inclusion
+  2: patches
+  3: pitted_surface
+  4: rolled-in_scale
+  5: scratches
