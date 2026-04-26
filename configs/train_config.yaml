@@ -1,0 +1,50 @@
+# training configuration
+model: yolov8s.pt  ## start tu pretrained: n/s/m/l/x (nano/small,..)
+## s: small, can bang giua accuracy va speed
+
+epochs: 100
+patience: 20 ## stop early of not improving after 20 epochs
+batch: 16
+imgsz: 640
+device: 'cpu'
+workers: 4
+
+
+# optimizer
+optimizer: AdamW
+lr0: 0.001 ## initial learning rate
+lr1: 0.01 ## final lr = lr0*lrf
+momentum=0.937
+
+weight_decay: 0.0005
+warmup_epochs: 3
+warmup_momentum: 0.8
+warmup_bias_lr: 0.1
+
+
+# Loss weights
+box: 7.5
+cls: 0.5
+dfl: 1.5
+
+# Augmentation (YOLO built-in - đây là production settings)
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+degrees: 10.0
+translate: 0.1
+scale: 0.5
+shear: 2.0
+perspective: 0.0
+flipud: 0.3
+fliplr: 0.5
+mosaic: 1.0               # Mosaic augmentation - rất hiệu quả
+mixup: 0.1
+copy_paste: 0.1
+
+#output
+project: runs/train
+namw: smart_defect_detector_v1
+save: true
+save_period: 10 ## save checkpoint mooi 10 epochs
+plots: true ## generate training plots
