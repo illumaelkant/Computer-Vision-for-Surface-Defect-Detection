@@ -7,13 +7,13 @@ from ultralytics import YOLO
 from loguru import logger
 
 
-def load_config(config_path: str = "configs/train_config.yaml") -> dict:
+def load_config(config_path: str = "../../configs/train_config.yaml") -> dict:
     with open(config_path) as f:
         return yaml.safe_load(f)
 
 
-def train(config_path: str = "configs/train_config.yaml",
-          dataset_config: str = "configs/dataset.yaml",
+def train(config_path: str = "../../configs/train_config.yaml",
+          dataset_config: str = "../../configs/dataset.yaml",
           resume: str = None):
     """
     Train YOLOv8 model.
@@ -93,7 +93,7 @@ def train(config_path: str = "configs/train_config.yaml",
 
     # Copy best model ra models/weights/
     import shutil
-    dest = Path("models/weights/best.pt")
+    dest = Path("../../models/weights/best.pt")
     dest.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy(best_model_path, dest)
     logger.info(f"Copied best model to {dest}")
@@ -105,8 +105,8 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", default="configs/train_config.yaml")
-    parser.add_argument("--data", default="configs/dataset.yaml")
+    parser.add_argument("--config", default="../../configs/train_config.yaml")
+    parser.add_argument("--data", default="../../configs/dataset.yaml")
     parser.add_argument("--resume", default=None, help="Path to checkpoint to resume")
     args = parser.parse_args()
 

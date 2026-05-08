@@ -13,8 +13,8 @@ workers: 4
 # optimizer
 optimizer: AdamW
 lr0: 0.001 ## initial learning rate
-lr1: 0.01 ## final lr = lr0*lrf
-momentum=0.937
+lrf: 0.01 ## final lr = lr0 * lrf
+momentum: 0.937
 
 weight_decay: 0.0005
 warmup_epochs: 3
@@ -44,7 +44,7 @@ copy_paste: 0.1
 
 #output
 project: runs/train
-namw: smart_defect_detector_v1
+name: smart_defect_detector_v1
 save: true
 save_period: 10 ## save checkpoint mooi 10 epochs
 plots: true ## generate training plots

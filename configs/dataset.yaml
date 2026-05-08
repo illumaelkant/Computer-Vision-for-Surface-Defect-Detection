@@ -1,5 +1,5 @@
 # path cua thu muc root:
-path: data/processed
+path: /home/thien/Desktop/Workspace/PersonalDevelopment/ObjectDetection/Surface-Defect-Detection/data/processed
 train: images/train
 val: images/val
 test: images/test
